@@ -16,6 +16,9 @@ Button.propTypes ={
 Button.defaultProps ={
     name: 'Click me Now',
 }
+//===> on the importance of Type checking
+/*  prop type checking is crucial for validting external data, usually this is used to validate incoming data from APIs
+    and it insures that the data format fits our components requirments to display the right data without bugs*/
 //List of all available  proptypes that can be validated against:-
 /*
 ***.isRequired can be chained to any of these validators to insure an error is thrown when validators return false

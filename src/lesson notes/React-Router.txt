@@ -1,0 +1,44 @@
+React- router:
+is a client-side routing library for React that allows you to manage multiple "pages" or views
+in a single-page application (SPA). It enables navigation between components without triggering a full page
+reload, making the app faster and more responsive. React Router updates the URL and renders the appropriate
+component for each route, improving user experience and reducing bandwidth usage by avoiding unnecessary
+requests to the server. Data fetching can still be done on-demand, triggered by navigation or user actions,
+rather than loading everything on each page change.
+
+how to use instruction:
+ 1-in terminal => npm install react-router
+
+ 2-in main => import { createBrowserRouter, RouterProvider } from "react-router";
+
+ 3-in main declare a router that takes createBrowserRouter=>
+ 
+ const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "profile",
+    element: <Profile />,
+  },
+]); 
+note: the body of createBrowserRouter takes an array of object
+      each object is a page we want to rout to, and each page object
+      has a path and element attribute, path:"/" is the default page
+      and the element is the element/ component co responding to the path
+      declared above it   
+
+ 4- inject <RouterProviderrouter={routing function name goes here, in this case router}/>
+    into our createRoot method on main as sucj => 
+
+    createRoot(document.getElementById("root")).render(
+    <StrictMode>
+        <RouterProvider router={router} />
+    </StrictMode>
+    );
+ 5- link declerations to router pages should always be declared with  a Link markup
+    provided by the router library to insure that the router is handeling page switching 
+    and no http requests are sent
+    -1 => import { Link } from "react-router";
+    -2 =>< Link to="routerPage">router page name</Link>
